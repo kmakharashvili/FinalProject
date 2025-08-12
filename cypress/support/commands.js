@@ -1,4 +1,6 @@
-Cypress.Commands.add('openLoginPopup', () => {
-  cy.get('div.opn', { timeout: 10000 }).click({ force: true });
-  cy.get('a.iprof > p').should('be.visible').click({ force: true });
+Cypress.Commands.add('login', (email, password) => {
+    cy.get('.menu-pop > .rprof').click();
+    cy.get('input[type="email"]').type(email);
+    cy.get('input[type="password"]').type(password);
+    cy.get('form').submit();
 });
